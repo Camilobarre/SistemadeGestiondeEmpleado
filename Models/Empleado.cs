@@ -30,4 +30,13 @@ public class Empleado
         this.Posicion = posicion;
         this.Salario = salario;
     }
+
+    public void MostrarInformacion()
+    {
+        Console.WriteLine($@"Información del empleado
+                          Nombre Completo: {Nombre} {Apellido}
+                          Edad: {Edad}
+                          Posición{Posicion}
+                          Salario: {SalarioBonificacion:C}");
+    }
 }
