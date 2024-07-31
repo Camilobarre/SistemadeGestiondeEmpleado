@@ -122,4 +122,25 @@ public class Empresa
             Console.WriteLine($"No se encontraron empleados con la posición {posicionABuscar}.");
         }
     }
+    public static void ImprimirMenu()
+    {
+        Console.WriteLine("==============================================================================");
+        Console.WriteLine("                             Gestión de Empleados                             ");
+        Console.WriteLine("==============================================================================");
+        Console.WriteLine("                             1. Agregar Empleado                              ");
+        Console.WriteLine("                             2. Mostrar Empleado                              ");
+        Console.WriteLine("                             3. Editar Empleado                               ");
+        Console.WriteLine("                             4. Eliminar Empleado                             ");
+        Console.WriteLine("                             0. Salir                                         ");
+        Console.WriteLine("==============================================================================");
+        Console.Write("Selecciona una opción: ");
+    }
+
+    public static void PausarMenu()
+    {
+        Console.WriteLine("Presiona una tecla para continuar...");
+        Console.ReadKey();
+        Console.Clear();
+    }
+
 }
