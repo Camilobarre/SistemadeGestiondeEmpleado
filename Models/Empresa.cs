@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace POO_Sistema_Gestion_Empleados.Models;
@@ -96,6 +97,10 @@ public class Empresa
             input = Console.ReadLine().Trim();
             if (!string.IsNullOrEmpty(input)) empleadoActualizar.Salario = double.Parse(input);
         }
+    }
 
+    public static Empleado? BuscarEmpleadoPorCedula(string NumeroDeIdentificacion)
+    {
+        return ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == NumeroDeIdentificacion);
     }
 }
