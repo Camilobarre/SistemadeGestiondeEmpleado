@@ -1,5 +1,6 @@
 ﻿using POO_Sistema_Gestion_Empleados.Models;
 
+Console.Clear();
 var bandera = true;
 
 while (bandera)
@@ -16,7 +17,6 @@ while (bandera)
             break;
         case 1:
             // Agregar Empleado
-            Empresa.PedirDatosEmpleado();
             Empresa.AgregarEmpleado();
             Empresa.PausarMenu();
             break;
@@ -36,6 +36,7 @@ while (bandera)
             Empresa.PausarMenu();
             break;
         default:
+            // Opción no válidas
             Console.WriteLine("Opción inválida, intente nuevamente.");
             break;
     }

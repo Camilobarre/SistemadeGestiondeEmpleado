@@ -11,11 +11,15 @@ public class Empresa
     public string? Direccion { get; set; }
     public static List<Empleado> ListaEmpleados = new List<Empleado>();
 
-    public Empresa(string nombre, string direccion)
+    //Constructor
+    public Empresa(
+        string nombre,
+        string direccion)
     {
         this.Nombre = nombre;
         this.Direccion = direccion;
     }
+    //Método para pedir datos al usuario
     public static Empleado PedirDatosEmpleado()
     {
         Console.WriteLine("Ingresa los datos del Empleado");
@@ -23,24 +27,25 @@ public class Empresa
         Console.Write("Nombre: ");
         string? nombre = Console.ReadLine();
 
-        Console.Write("Apellido:");
+        Console.Write("Apellido: ");
         string? apellido = Console.ReadLine();
 
-        Console.Write("Número de Identificación:");
+        Console.Write("Número de Identificación: ");
         string? numeroDeIdentificacion = Console.ReadLine();
 
-        Console.Write("Edad");
+        Console.Write("Edad: ");
         byte edad = byte.Parse(Console.ReadLine());
 
-        Console.Write("Posición:");
+        Console.Write("Posición: ");
         string? posicion = Console.ReadLine();
 
-        Console.Write("Salario");
+        Console.Write("Salario: ");
         double salario = double.Parse(Console.ReadLine());
 
         return new Empleado(nombre, apellido, numeroDeIdentificacion, edad, posicion, salario);
     }
 
+    //Método para agregar un empleado nuevo
     public static void AgregarEmpleado()
     {
         Empleado empleado = PedirDatosEmpleado();
@@ -48,6 +53,7 @@ public class Empresa
         Console.WriteLine("Empleado agregado correctamente");
     }
 
+    //Método para elimianr un empleado
     public static void Eliminarempleado()
     {
         Console.WriteLine("Ingresa el número de identificación del empleado que deseas eliminar");
@@ -64,6 +70,7 @@ public class Empresa
         }
     }
 
+    //Método para actualizar un empleado
     public static void ActualizarEmpleado()
     {
         Console.WriteLine("Ingresa el número de identificación del empleado que deseas eliminar");
@@ -99,11 +106,13 @@ public class Empresa
         }
     }
 
+    //Método para buscar un empleado por cédula
     public static Empleado? BuscarEmpleadoPorCedula(string NumeroDeIdentificacion)
     {
         return ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == NumeroDeIdentificacion);
     }
 
+    //Método para mostrar empleados por cargo
     public static void MostrarEmpleadoPorCargo()
     {
         Console.WriteLine("Ingrese la posición del empleado que deseas buscar:");
@@ -114,7 +123,11 @@ public class Empresa
             Console.WriteLine($"Los empleados con posición {posicionABuscar} son:");
             foreach (var empleado in empleadosPorCargo)
             {
-                Console.WriteLine(empleado.ToString());
+                Console.WriteLine($"Nombre: {empleado.Nombre} {empleado.Apellido}, " +
+                  $"Identificación: {empleado.NumeroDeIdentificacion}, " +
+                  $"Edad: {empleado.Edad}, " +
+                  $"Posición: {empleado.Posicion}, " +
+                  $"Salario: {empleado.Salario:C}");
             }
         }
         else
@@ -122,6 +135,8 @@ public class Empresa
             Console.WriteLine($"No se encontraron empleados con la posición {posicionABuscar}.");
         }
     }
+
+    //Método para imprimir un menú
     public static void ImprimirMenu()
     {
         Console.WriteLine("==============================================================================");
@@ -136,11 +151,11 @@ public class Empresa
         Console.Write("Selecciona una opción: ");
     }
 
+    //Método para pausar el menú
     public static void PausarMenu()
     {
         Console.WriteLine("Presiona una tecla para continuar...");
         Console.ReadKey();
-        Console.Clear();
     }
 
 }

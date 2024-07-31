@@ -14,6 +14,7 @@ public class Empleado
     public string? Posicion { get; set; }
     public double Salario { get; set; }
 
+    //Constructor
     public Empleado(
     string nombre,
     string apellido,
@@ -31,10 +32,13 @@ public class Empleado
         this.Salario = salario;
     }
 
+    //Método para calcular la bonificación
     private double CalcularBonificacion()
     {
         return Salario + Salario * 0.1;
     }
+
+    //Método para mostrar información
     public void MostrarInformacion()
     {
         Console.WriteLine($@"Información del empleado
