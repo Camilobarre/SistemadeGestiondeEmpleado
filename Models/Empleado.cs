@@ -31,12 +31,16 @@ public class Empleado
         this.Salario = salario;
     }
 
+    private double CalcularBonificacion()
+    {
+        return Salario + Salario * 0.1;
+    }
     public void MostrarInformacion()
     {
         Console.WriteLine($@"Información del empleado
-                          Nombre Completo: {Nombre} {Apellido}
-                          Edad: {Edad}
-                          Posición{Posicion}
-                          Salario: {SalarioBonificacion:C}");
+                             Nombre Completo: {Nombre} {Apellido}
+                             Edad: {Edad}
+                             Posición{Posicion}
+                             Salario: {CalcularBonificacion():C}");
     }
 }
