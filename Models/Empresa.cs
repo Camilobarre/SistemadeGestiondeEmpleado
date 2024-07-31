@@ -50,9 +50,9 @@ public class Empresa
     public static void Eliminarempleado()
     {
         Console.WriteLine("Ingresa el número de identificación del empleado que deseas eliminar");
-        string numeroDeIdentificacion = Console.ReadLine();
-        Empleado empleadoAEliminar = ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
-        if (empleadoAEliminar!= null)
+        string? numeroDeIdentificacion = Console.ReadLine().Trim();
+        Empleado? empleadoAEliminar = ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
+        if (empleadoAEliminar != null)
         {
             ListaEmpleados.Remove(empleadoAEliminar);
             Console.WriteLine("Empleado eliminado correctamente");
@@ -61,5 +61,41 @@ public class Empresa
         {
             Console.WriteLine("No se encontró un empleado con ese número de identificación");
         }
+    }
+
+    public static void ActualizarEmpleado()
+    {
+        Console.WriteLine("Ingresa el número de identificación del empleado que deseas eliminar");
+        string? numeroDeIdentificacion = Console.ReadLine().Trim();
+        Empleado? empleadoActualizar = ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
+        if (empleadoActualizar != null)
+        {
+            Console.WriteLine("Ingresa los nuevos datos del empleado");
+
+            Console.Write("Nombre (Deja en blanco para no cambiar):");
+            var input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.Nombre = input;
+
+            Console.Write("Apellido (Deja en blanco para no cambiar):");
+            input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.Apellido = input;
+
+            Console.Write("Número de Identifiación (Deja en blanco para no cambiar):");
+            input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.NumeroDeIdentificacion = input;
+
+            Console.Write("Edad (Deja en blanco para no cambiar):");
+            input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.Edad = byte.Parse(input);
+
+            Console.Write("Posición (Deja en blanco para no cambiar):");
+            input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.Posicion = input;
+
+            Console.Write("Salario (Deja en blanco para no cambiar):");
+            input = Console.ReadLine().Trim();
+            if (!string.IsNullOrEmpty(input)) empleadoActualizar.Salario = double.Parse(input);
+        }
+
     }
 }
