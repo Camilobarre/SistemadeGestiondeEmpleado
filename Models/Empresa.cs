@@ -46,4 +46,20 @@ public class Empresa
         ListaEmpleados.Add(empleado);
         Console.WriteLine("Empleado agregado correctamente");
     }
+
+    public static void Eliminarempleado()
+    {
+        Console.WriteLine("Ingresa el número de identificación del empleado que deseas eliminar");
+        string numeroDeIdentificacion = Console.ReadLine();
+        Empleado empleadoAEliminar = ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == numeroDeIdentificacion);
+        if (empleadoAEliminar!= null)
+        {
+            ListaEmpleados.Remove(empleadoAEliminar);
+            Console.WriteLine("Empleado eliminado correctamente");
+        }
+        else
+        {
+            Console.WriteLine("No se encontró un empleado con ese número de identificación");
+        }
+    }
 }
