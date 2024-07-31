@@ -22,15 +22,20 @@ while (bandera)
             break;
         case 2:
             // Mostrar Empleado
-            Empresa.MostrarEmpleadoPorCargo();
+            Empresa.MostrarEmpleado();
             Empresa.PausarMenu();
             break;
         case 3:
+            // Mostrar Empleado por cargo
+            Empresa.MostrarEmpleadoPorCargo();
+            Empresa.PausarMenu();
+            break;
+        case 4:
             // Actualizar Empleado
             Empresa.ActualizarEmpleado();
             Empresa.PausarMenu();
             break;
-        case 4:
+        case 5:
             // Eliminar Empleado
             Empresa.Eliminarempleado();
             Empresa.PausarMenu();

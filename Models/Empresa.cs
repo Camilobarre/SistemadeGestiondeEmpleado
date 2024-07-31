@@ -112,6 +112,16 @@ public class Empresa
         return ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == NumeroDeIdentificacion);
     }
 
+    public static void MostrarEmpleado()
+    {
+        Console.WriteLine($"Lista de empleados:");
+        foreach (var empleado in ListaEmpleados)
+        {
+            Console.WriteLine(empleado);
+        }
+
+    }
+
     //Método para mostrar empleados por cargo
     public static void MostrarEmpleadoPorCargo()
     {
@@ -144,8 +154,9 @@ public class Empresa
         Console.WriteLine("==============================================================================");
         Console.WriteLine("                             1. Agregar Empleado                              ");
         Console.WriteLine("                             2. Mostrar Empleado                              ");
-        Console.WriteLine("                             3. Editar Empleado                               ");
-        Console.WriteLine("                             4. Eliminar Empleado                             ");
+        Console.WriteLine("                             3. Mostrar Empleado por cargo                    ");
+        Console.WriteLine("                             4. Editar Empleado                               ");
+        Console.WriteLine("                             5. Eliminar Empleado                             ");
         Console.WriteLine("                             0. Salir                                         ");
         Console.WriteLine("==============================================================================");
         Console.Write("Selecciona una opción: ");
