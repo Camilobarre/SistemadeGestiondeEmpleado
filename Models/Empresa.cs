@@ -103,4 +103,23 @@ public class Empresa
     {
         return ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == NumeroDeIdentificacion);
     }
+
+    public static void MostrarEmpleadoPorCargo()
+    {
+        Console.WriteLine("Ingrese la posición del empleado que deseas buscar:");
+        string? posicionABuscar = Console.ReadLine().Trim().ToLower();
+        List<Empleado> empleadosPorCargo = ListaEmpleados.Where(e => e.Posicion.ToLower() == posicionABuscar).ToList();
+        if (empleadosPorCargo.Any())
+        {
+            Console.WriteLine($"Los empleados con posición {posicionABuscar} son:");
+            foreach (var empleado in empleadosPorCargo)
+            {
+                Console.WriteLine(empleado.ToString());
+            }
+        }
+        else
+        {
+            Console.WriteLine($"No se encontraron empleados con la posición {posicionABuscar}.");
+        }
+    }
 }
