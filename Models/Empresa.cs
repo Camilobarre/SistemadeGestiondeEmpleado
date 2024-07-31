@@ -111,13 +111,17 @@ public class Empresa
     {
         return ListaEmpleados.FirstOrDefault(e => e.NumeroDeIdentificacion == NumeroDeIdentificacion);
     }
-
+    //Método para mostrar empleado
     public static void MostrarEmpleado()
     {
         Console.WriteLine($"Lista de empleados:");
         foreach (var empleado in ListaEmpleados)
         {
-            Console.WriteLine(empleado);
+            Console.WriteLine($"Nombre: {empleado.Nombre} {empleado.Apellido}, " +
+                $"Identificación: {empleado.NumeroDeIdentificacion}, " +
+                $"Edad: {empleado.Edad}, " +
+                $"Posición: {empleado.Posicion}, " +
+                $"Salario: {empleado.Salario:C}");
         }
 
     }
